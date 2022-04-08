@@ -12,11 +12,32 @@ class GaugeDisplay extends StatefulWidget {
     this.min,
     this.max,
     required this.updatedValue,
+    this.percentage,
+    this.lineWidths,
+    this.pointerLength,
+    this.pointerInset,
+    this.pointerColor,
+    this.fillColor,
+    this.extend,
+    this.blur,
+    this.shadowOpacity,
+    this.bgOpacity,
   }) : super(key: key);
   final String? unit;
   final num? min;
   final num? max;
   final num updatedValue;
+
+  final double? percentage;
+  final double? lineWidths;
+  final double? pointerLength;
+  final double? pointerInset;
+  final Color? pointerColor;
+  final Color? fillColor;
+  final double? extend;
+  final double? blur;
+  final double? shadowOpacity;
+  final double? bgOpacity;
 
   @override
   State<GaugeDisplay> createState() => _GaugeDisplayState();
@@ -41,7 +62,15 @@ class _GaugeDisplayState extends State<GaugeDisplay> {
         ),
         painter: GaugePainter(
           percentage: _percentage,
-          fillColor: Colors.grey.shade700,
+          pointerLength: widget.pointerLength ?? 5.0,
+          pointerInset: widget.pointerInset ?? 0.0,
+          fillColor: widget.fillColor ?? Colors.black,
+          pointerColor: widget.pointerColor ?? Colors.black,
+          extend: widget.extend ?? 15,
+          lineWidths: widget.lineWidths ?? 5.0,
+          blur: widget.blur ?? 3.0,
+          shadowOpacity: widget.shadowOpacity ?? 0.3,
+          bgOpacity: widget.bgOpacity ?? 0.1,
         ),
       ),
     );

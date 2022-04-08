@@ -3,15 +3,15 @@ part of 'gauge_display.dart';
 class GaugePainter extends CustomPainter {
   GaugePainter({
     required this.percentage,
-    this.pointerLength = 5.0,
-    this.pointerInset = 0.0,
-    this.fillColor = Colors.black,
-    this.pointerColor = Colors.black,
-    this.extend = 15,
-    this.lineWidths = 5.0,
-    this.blur = 3.0,
-    this.shadowOpacity = 0.3,
-    this.bgOpacity = 0.1,
+    required this.pointerLength,
+    required this.pointerInset,
+    required this.fillColor,
+    required this.pointerColor,
+    required this.extend,
+    required this.lineWidths,
+    required this.blur,
+    required this.shadowOpacity,
+    required this.bgOpacity,
   }) : super();
   final double percentage;
   final double lineWidths;
