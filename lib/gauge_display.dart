@@ -77,24 +77,18 @@ class _GaugeDisplayState extends State<GaugeDisplay> {
   }
 
   _text(context) {
-    if (widget.unit == null) {
-      return TextSpan(
-        text: widget.updatedValue.toString(),
-        style: Theme.of(context).textTheme.titleLarge,
-      );
-    } else {
-      return TextSpan(
-        children: <InlineSpan>[
-          TextSpan(
-            text: widget.updatedValue.toString(),
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          TextSpan(
-            text: '\n${widget.unit}',
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-        ],
-      );
-    }
+    var _unit = '\n' + (widget.unit ?? '');
+    return TextSpan(
+      children: <InlineSpan>[
+        TextSpan(
+          text: widget.updatedValue.toString(),
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        TextSpan(
+          text: _unit,
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
+      ],
+    );
   }
 }
