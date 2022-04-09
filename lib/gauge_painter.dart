@@ -80,6 +80,7 @@ class GaugePainter extends CustomPainter {
       ),
       Paint()
         ..style = PaintingStyle.stroke
+        ..color = pointerColor
         ..strokeCap = StrokeCap.round
         ..strokeWidth = lineWidths,
     );
