@@ -9,8 +9,8 @@ class GaugeDisplay extends StatefulWidget {
   const GaugeDisplay({
     Key? key,
     this.unit,
-    this.min,
-    this.max,
+    required this.min,
+    required this.max,
     required this.updatedValue,
     this.percentage,
     this.lineWidths,
@@ -25,8 +25,8 @@ class GaugeDisplay extends StatefulWidget {
     this.useWidth,
   }) : super(key: key);
   final String? unit;
-  final num? min;
-  final num? max;
+  final num min;
+  final num max;
   final num updatedValue;
 
   final double? percentage;
@@ -49,7 +49,7 @@ class _GaugeDisplayState extends State<GaugeDisplay> {
   @override
   Widget build(BuildContext context) {
     double _percentage =
-        widget.updatedValue / ((widget.max ?? 100) - (widget.min ?? 0));
+        (widget.updatedValue - widget.min) / (widget.max - widget.min);
     if (_percentage > 1.0) _percentage = 1.0;
     var maxSize = MediaQuery.of(context).size / 2;
     return Container(
