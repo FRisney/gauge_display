@@ -12,6 +12,7 @@ class GaugePainter extends CustomPainter {
     required this.blur,
     required this.shadowOpacity,
     required this.bgOpacity,
+    required this.useWidth,
   }) : super();
   final double percentage;
   final double lineWidths;
@@ -23,11 +24,12 @@ class GaugePainter extends CustomPainter {
   final double blur;
   final double shadowOpacity;
   final double bgOpacity;
+  final bool useWidth;
   @override
   void paint(Canvas canvas, Size size) {
     final finalAngle = _angleToRadian(180 + (extend * 2));
     final initialAngle = _angleToRadian(180 - extend);
-    final radius = size.height / 8 * 6;
+    final radius = (useWidth) ? (size.width / 2) : (size.height / 8 * 6);
     final center = Offset(size.width / 2, radius);
     final finalPoint = finalAngle * percentage - _angleToRadian(extend);
     final pointerStart = (radius - pointerInset) - pointerLength;

@@ -22,6 +22,7 @@ class GaugeDisplay extends StatefulWidget {
     this.blur,
     this.shadowOpacity,
     this.bgOpacity,
+    this.useWidth,
   }) : super(key: key);
   final String? unit;
   final num? min;
@@ -38,6 +39,7 @@ class GaugeDisplay extends StatefulWidget {
   final double? blur;
   final double? shadowOpacity;
   final double? bgOpacity;
+  final bool? useWidth;
 
   @override
   State<GaugeDisplay> createState() => _GaugeDisplayState();
@@ -71,6 +73,7 @@ class _GaugeDisplayState extends State<GaugeDisplay> {
           blur: widget.blur ?? 3.0,
           shadowOpacity: widget.shadowOpacity ?? 0.3,
           bgOpacity: widget.bgOpacity ?? 0.1,
+          useWidth: widget.useWidth ?? true,
         ),
       ),
     );
